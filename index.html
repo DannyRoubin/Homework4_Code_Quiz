@@ -9,19 +9,21 @@
 
   <body class="bg-light text-dark">
     <heading class="display-flex my-3">
-      <h5>View Highscores</h5>
+      <button id= "highscore" class="button">View Highscores</button>
       <h6 id="time">Time: 0</h6>
     </heading>
+    <article>
     <h1 class="text-center">Coding Quiz Game</h1>
     <h4 class="text-center">
       Try to answer the following code-related questions within the time limit.
       Keep in mind that incorrect answers will penalize your scoretime by ten
       seconds!
     </h4>
+    </article>
     <div id="centerStart">
     <button id="start" class="button">Start the Game!</button>
     </div>
-    <main class="text-center">
+    <main class="text-center display-none">
       <h3 id="question">Placeholder for question</h3>
       <div>
         <button id="answer1" class="button">Answer 1</button>
@@ -30,5 +32,6 @@
         <button id="answer4" class="button">Answer 4</button>
       </div>
     </main>
+    <script src= "assets/js/script.js"></script>
   </body>
 </html>
