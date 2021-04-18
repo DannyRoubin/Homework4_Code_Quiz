@@ -3,11 +3,8 @@ var startPrompt = document.querySelector("article");
 var timer = document.querySelector("#time");
 var startButton = document.querySelector("#start");
 var questionArea = document.querySelector("main");
-var question = document.querySelector("#question");
-var answer1 = document.querySelector("#answer1");
-var answer2 = document.querySelector("#answer2");
-var answer3 = document.querySelector("#answer3");
-var answer4 = document.querySelector("#answer4");
+var questionEL = document.querySelector("#question");
+var option = document.querySelector("#option");
 var timerElement = document.querySelector("#time");
 var correctCheck = document.querySelector("#correctCheck");
 
@@ -17,15 +14,35 @@ let currentQuestion;
 var questionCount = 0;
 var timerCount;
 
+
+function startTest() {
+  timerCount = 60;
+  startTimer();
+  startPrompt.style.display = "none";
+  questionArea.style.display = "inline";
+  correctCheck.style.display = "none";
+  randomQuestion = questions.sort ( () => Math.random() - 0.5);
+  currentQuestion = 0;
+ nextQuestion ();
+}
+
+function nextQuestion() {
+  showNextQuestion(randomQuestion[currentQuestion]); 
+}
+
+function showNextQuestion(question) {
+  questionEL.innerText = question.question;
+}
+
 var questions = [
   {
-    question1: "Filler question 1",
+    question: "Filler bleep 1",
     options1: [
       { text: "Filler answer 1", correct: true},
       { text: "Filler answer 2", correct: false},
       { text: "Filler answer 3", correct: false},
       { text: "Filler answer 4", correct: false},
-    ],
+    ]
     // question2: "Filler question 2",
     // options2: [
     //   { text: "Filler answer 1", correct: true},
@@ -57,32 +74,7 @@ var questions = [
   }
 ];
 
-function startTest() {
-  timerCount = 60;
-  startTimer();
-  startPrompt.style.display = "none";
-  questionArea.style.display = "inline";
-  correctCheck.style.display = "none";
- NextQuestion ();
-}
 
-
-// function question1() {
-//   question.textContent = "";
-//   answer1.textContent = "";
-//   answer2.textContent = "Filler answer 2";
-//   answer3.textContent = "Filler answer 3";
-//   answer4.textContent = "Filler answer 4";
-//   checkAnswer1;
-// }
-
-// function checkAnswer1() {
-//   if (answer1.addEventListener("click")) {
-//     console.log("yessir, this answer button theory i got here works");
-//     correctCheck.style.display = "inline";
-//     correctCheck.textContent = "Correct!";
-//   }
-// }
 
 function startTimer() {
   timer = setInterval(function () {
