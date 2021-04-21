@@ -20,6 +20,16 @@ h4 {
     margin-left: 45%;
 }
 
+aside {
+    display: flex;
+    justify-content: center;
+    
+}
+
+aside h3 {
+    
+}
+
 main {
 
 }
