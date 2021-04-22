@@ -1,3 +1,4 @@
+//pulling variables from the html
 var header = document.querySelector("heading");
 var startPrompt = document.querySelector("article");
 var startButton = document.querySelector("#start");
@@ -23,7 +24,7 @@ var choice;
 var userChoice;
 var userInitials;
 
-
+//sets the timer, and makes everything but the question area and highscore button go away
 function startTest() {
   timerCount = 60;
   startTimer();
@@ -35,7 +36,7 @@ function startTest() {
  nextQuestion ();
 }
 
-
+//checks if the answer is right or wrong
 function checkAnswer () {
 
  if (choiceClick.innerText !== questions[currentQuestionIndex].answer.innerText) {
@@ -57,14 +58,15 @@ function checkAnswer () {
  }
 }
 
+//sets the next question
 function nextQuestion() {
   showNextQuestion(questions[currentQuestionIndex]); 
 }
 
+//checks to see if the game is still running or not
 function choiceClick(clickedChoice) {
    var userChoice = clickedChoice.innerText;
    questionCount++;
-   console.log(questionCount);
    if ( questionCount < 5){
     checkAnswer(userChoice);
    } else{
@@ -72,6 +74,7 @@ function choiceClick(clickedChoice) {
    }
 }
 
+//allows user to input their initials and it'll put it next to their time
 function winGame() {
   clearInterval(timer);
   userInitials = window.prompt("Enter your initials");
@@ -79,6 +82,7 @@ function winGame() {
   showHighScores();
 }
 
+//shows the questions
 function showNextQuestion(questions) {
   questionEL.innerText = questions.title;
   option1.innerText = (questions.choices[0])
@@ -87,13 +91,7 @@ function showNextQuestion(questions) {
   option4.innerText = (questions.choices[3])
 }
 
-
-// function checkUserChoice(question, userChoice)
-// {
-  
-//   return false;
-// }
-
+//runs the timer and checks if the game is lost
 function startTimer() {
   timer = setInterval(function () {
     timerCount--;
@@ -108,7 +106,7 @@ function startTimer() {
 }
 
 
-
+//shows the highscore page
 function showHighScores () {
   clearInterval(timer);
   startPrompt.style.display = "none";
@@ -124,5 +122,3 @@ startButton.addEventListener("click", startTest);
 
 choice.addEventListener("click", choiceClick); 
 
-
-//check if the correct answer is working too
