@@ -9,7 +9,10 @@ var option3 = document.querySelector("#option3");
 var option4 = document.querySelector("#option4");
 var timerElement = document.querySelector("#time");
 var correctCheck = document.querySelector("#correctCheck");
-var option = document.querySelector("#optionButtons")
+var option = document.querySelector("#optionButtons");
+var highScoreBtn = document.querySelector("#highScoreBtn");
+var highScoreEL = document.querySelector("#highScoreScoreboard");
+var userInitialsInput = document.querySelector("#userInput");
 
 var currentQuestion;
 var currentQuestionIndex = 0;
@@ -18,6 +21,7 @@ var questionCount = 0;
 var timerCount;
 var choice;
 var userChoice;
+var userInitials;
 
 
 function startTest() {
@@ -27,6 +31,7 @@ function startTest() {
   questionArea.style.display = "block";
   correctCheck.style.display = "none";
   startButton.style.display = "none";
+  highScoreEL.style.display = "none";
  nextQuestion ();
 }
 
@@ -37,15 +42,20 @@ function checkAnswer () {
    timerCount -= 15;
    timerElement.textContent = timerCount;
    console.log ("incorrect");
+   correctCheck.textContent = "Incorrect";
+   correctCheck.style.display = "block";
    currentQuestionIndex++;
    nextQuestion();
    //reflect if q was wrong
- } else
+ } else {
  console.log ("correct");
-  //  currentQuestionIndex++;
+ correctCheck.textContent = "correct";
+ correctCheck.style.display = "block";
+    currentQuestionIndex++;
    nextQuestion();
- //write in if it's 
+  
  }
+}
 
 function nextQuestion() {
   showNextQuestion(questions[currentQuestionIndex]); 
@@ -53,9 +63,20 @@ function nextQuestion() {
 
 function choiceClick(clickedChoice) {
    alert (clickedChoice.innerText); 
+   questionCount++;
+   console.log(questionCount);
+   if ( questionCount < 5){
    checkAnswer();
+   } else{
+     winGame();
+   }
 }
 
+function winGame() {
+  clearInterval(timer);
+  userInitials = window.prompt("Enter your initials");
+  userInitialsInput.appendChild(userInitials + " time Left: " + timerCount)
+}
 
 function showNextQuestion(questions) {
   questionEL.innerText = questions.title;
@@ -104,15 +125,27 @@ function startTimer() {
       clearInterval(timer);
       alert ("You lost")
       timerElement.textContent = "Time: 0";
+      showHighScores();
     }
   }, 1000);
 }
 
+
+
+function showHighScores () {
+  clearInterval(timer);
+  startPrompt.style.display = "none";
+  questionArea.style.display = "none";
+  correctCheck.style.display = "none";
+  startButton.style.display = "block";
+  highScoreEL.style.display = "block";
+}
+
+highScoreBtn.addEventListener("click", showHighScores);
+
 startButton.addEventListener("click", startTest);
 
-//choice.addEventListener("click") = userChoice; 
 choice.addEventListener("click", choiceClick); 
 
-//complete question.js, make sure it's going through
-//check if the if statement and time decrease is working
+
 //check if the correct answer is working too

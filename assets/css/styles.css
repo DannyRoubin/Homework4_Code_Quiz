@@ -17,22 +17,16 @@ h4 {
 }
 
 #centerStart { 
-    margin-left: 45%;
+    margin-left: 15.65rem;
 }
 
 aside {
     display: flex;
     justify-content: center;
+    width: 30%;
     
 }
 
-aside h3 {
-    
-}
-
-main {
-
-}
 
 main, div {
 width:30%;
@@ -41,10 +35,6 @@ margin-left: 20px;
 
 main, h3 {
     float: left;
-}
-
-main, button {
-
 }
 
 .button {

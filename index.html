@@ -9,7 +9,7 @@
 
   <body class="bg-light text-dark">
     <heading class="display-flex my-3">
-      <button id= "highscore" class="button">View Highscores</button>
+      <button id= "highScoreBtn" class="button">View Highscores</button>
       <h6 id="time">Time: 0</h6>
     </heading>
     <article>
@@ -23,11 +23,10 @@
     <div id="centerStart">
     <button id="start" class="button">Start the Game!</button>
     </div>
-    <aside class= "display-none">
+    <aside id="highScoreScoreboard" class= "display-none">
       <h3>Highscores</h3>
-      <h4>1. </h4>
-      <h4>2. </h4>
-      <h4>3. </h4>
+      <ol id ="userInputs" class= "display-list">
+    </ol>
     </aside>
     <main class="text-center display-none">
       <h3 id="question">Placeholder for question</h3>
