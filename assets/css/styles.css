@@ -17,13 +17,13 @@ h4 {
 }
 
 #centerStart { 
-    margin-left: 15.65rem;
+    margin-left: 45%;
 }
 
 aside {
     display: flex;
     justify-content: center;
-    width: 30%;
+    width: 15.65rem;
     
 }
 
@@ -36,6 +36,7 @@ margin-left: 20px;
 main, h3 {
     float: left;
 }
+
 
 .button {
     background-color: rgb(81, 4, 153);

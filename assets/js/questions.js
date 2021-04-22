@@ -1,43 +1,43 @@
 
 var questions = [
     {
-      title: "Question 1 here",
+      title: "Inside which HTML element do we put the JavaScript?",
       choices: [
-        "answer154353", "answer2", "answer3","answer4"
+        "<scripting>", "<js>", "<javascript>","<script>"
       ],
-      answer: "answer154353"
+      answer: "<script>"
   
     },
     {
-        title: "Question 2 here",
+        title: "How does a FOR loop start?",
         choices: [
-          "dog", "answer2", "answer3", "answer4"
+          "for(i = 0; i <=5; i++)", "for (i=0;i<=5)", "for i=1 to 5", "loop i for 5 times"
         ],
-        answer: "dog"
+        answer: "for(i = 0; i <=5; i++)"
     
       },
     {
-        title: "Question 3 here",
+        title: "How can you add a comment into JavaScript?",
         choices: [
-          "cat", "answer2", "answer3", "answer4"
+          "--comment--", "<!--comment--!>", "//comment", "*comment*"
         ],
-        answer: "cat"
+        answer: "//comment"
     
       },
     {
-        title: "Question 4 here",
+        title: "Which operator is used to assign a value to a variable?",
         choices: [
-          "cat dog", "answer2", "answer3", "answer4"
+          "||", "=", "*", "?"
         ],
-        answer: "answer2"
+        answer: "="
     
       },
     {
-        title: "Question 5 here",
+        title: "What will the following code return: Boolean(10 > 9)",
         choices: [
-          "dogcat", "answer2", "answer3", "answer4"
+          "null", "false", "undefined", "true"
         ],
-        answer: "dogcat"
+        answer: "true"
     
       }
   ]

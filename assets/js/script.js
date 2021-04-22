@@ -12,7 +12,7 @@ var correctCheck = document.querySelector("#correctCheck");
 var option = document.querySelector("#optionButtons");
 var highScoreBtn = document.querySelector("#highScoreBtn");
 var highScoreEL = document.querySelector("#highScoreScoreboard");
-var userInitialsInput = document.querySelector("#userInput");
+var inputHighScoreHere = document.querySelector("#inputHighScoreHere");
 
 var currentQuestion;
 var currentQuestionIndex = 0;
@@ -38,7 +38,7 @@ function startTest() {
 
 function checkAnswer () {
 
- if (choiceClick !== questions[currentQuestionIndex].answer.innerText) {
+ if (choiceClick.innerText !== questions[currentQuestionIndex].answer.innerText) {
    timerCount -= 15;
    timerElement.textContent = timerCount;
    console.log ("incorrect");
@@ -62,11 +62,11 @@ function nextQuestion() {
 }
 
 function choiceClick(clickedChoice) {
-   alert (clickedChoice.innerText); 
+   var userChoice = clickedChoice.innerText;
    questionCount++;
    console.log(questionCount);
    if ( questionCount < 5){
-   checkAnswer();
+    checkAnswer(userChoice);
    } else{
      winGame();
    }
@@ -75,7 +75,8 @@ function choiceClick(clickedChoice) {
 function winGame() {
   clearInterval(timer);
   userInitials = window.prompt("Enter your initials");
-  userInitialsInput.appendChild(userInitials + " time Left: " + timerCount)
+  inputHighScoreHere.innerText = "1. " + userInitials +" time left:" + timerCount
+  showHighScores();
 }
 
 function showNextQuestion(questions) {
@@ -87,35 +88,11 @@ function showNextQuestion(questions) {
 }
 
 
-// function choiceClick(clickedChoice) {
-//   //alert (clickedChoice.innerText); 
-
-
-//    if handleChoice(clickedChoice)
-//   {
-//     // show correct
-
-//     // advance to next
-//   }
-//   else
-//   {
-//     //booo!
-
-//     // decrease timer
-
-//   }
-
-
+// function checkUserChoice(question, userChoice)
+// {
+  
+//   return false;
 // }
-
-// function bool handleChoice() {
-//   // see if correct
-
-//   return true;
-
-// }
-
-//if timerCount < 0 then end game 
 
 function startTimer() {
   timer = setInterval(function () {
